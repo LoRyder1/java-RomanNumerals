@@ -17,4 +17,10 @@ public class RomanNumeralsTest {
         number = new RomanNumerals(2);
         assertEquals("II", number.convertArabic());
     }
+
+    @Test
+    public void whenRomanNumeralsIsPassedThreeAStringIIIisReturned() {
+        number = new RomanNumerals(3);
+        assertEquals("III", number.convertArabic());
+    }
 }
