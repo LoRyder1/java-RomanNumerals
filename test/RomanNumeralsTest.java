@@ -40,4 +40,10 @@ public class RomanNumeralsTest {
         setArabic(11);
         assertEquals("XI", number.convertArabic());
     }
+
+    @Test
+    public void whenRomanNumeralsIsPassedALargeNumberIterateOverAllKeys() {
+        setArabic(1066);
+        assertEquals("MLXVI", number.convertArabic());
+    }
 }
