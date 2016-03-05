@@ -8,9 +8,6 @@ public class RomanNumerals {
 
     public RomanNumerals(int arabic) {
         this.arabic = arabic;
-    }
-
-    public String convertArabic() {
 
 //      The outer pair of braces means that you are declaring and initializing an anonymous inner class that extends TreeMap. The inner pair of braces represents an instance initializer, code that is run when an instance is created.
         sortedMap = new TreeMap<Integer, String>() {{
@@ -28,12 +25,14 @@ public class RomanNumerals {
             put(1, "I");
         }}.descendingMap();
 
+    }
+
+    public String convertArabic() {
+
         String roman = "";
         int x = arabic;
 
         for(Map.Entry<Integer, String> entry : sortedMap.entrySet()) {
-
-//            System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
 
             int repeat = x/entry.getKey();
             for(int i = 0; i < repeat; i++) {
