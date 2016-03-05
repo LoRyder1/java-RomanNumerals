@@ -34,4 +34,10 @@ public class RomanNumeralsTest {
         setArabic(6);
         assertEquals("VI", number.convertArabic());
     }
+
+    @Test
+    public void whenRomanNumeralsIsPassedElevenStringConcatenationIsReturned() {
+        setArabic(11);
+        assertEquals("XI", number.convertArabic());
+    }
 }

@@ -12,17 +12,21 @@ public class RomanNumerals {
 
     public String convertArabic() {
 
-
-        sortedMap = new TreeMap<Integer, String>().descendingMap();
-
-        sortedMap.put(5, "V");
-        sortedMap.put(4, "IV");
-        sortedMap.put(1, "I");
+//      The outer pair of braces means that you are declaring and initializing an anonymous inner class that extends TreeMap. The inner pair of braces represents an instance initializer, code that is run when an instance is created.
+        sortedMap = new TreeMap<Integer, String>() {{
+            put(40, "XL");
+            put(10, "X");
+            put(5, "V");
+            put(4, "IV");
+            put(1, "I");
+        }}.descendingMap();
 
         String roman = "";
         int x = arabic;
 
         for(Map.Entry<Integer, String> entry : sortedMap.entrySet()) {
+
+//            System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
 
             int repeat = x/entry.getKey();
             for(int i = 0; i < repeat; i++) {
