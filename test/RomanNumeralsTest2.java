@@ -21,4 +21,22 @@ public class RomanNumeralsTest2 {
         setRoman("III");
         assertEquals(3, number.convertRoman());
     }
+
+    @Test
+    public void convertRomanAddsUpArabicNumbersForDifferentStrings() {
+        setRoman("VI");
+        assertEquals(6, number.convertRoman());
+    }
+
+    @Test
+    public void convertRomanAddsUpArabicForDifferentKeys() {
+        setRoman("MLXVI");
+        assertEquals(1066, number.convertRoman());
+    }
+
+    @Test
+    public void convertRomanAddsUpArabicForLargeNumber() {
+        setRoman("MCMLXXXVI");
+        assertEquals(1986, number.convertRoman());
+    }
 }
