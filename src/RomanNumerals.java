@@ -32,43 +32,43 @@ public class RomanNumerals {
     public String convertArabic() {
 
         String roman = "";
-        int x = arabic;
+        int inputNum = arabic;
 
         for(Map.Entry<Integer, String> entry : navDescMap.entrySet()) {
-            int repeat = x/entry.getKey();
+            int repeat = inputNum/entry.getKey();
             String value = entry.getValue();
-            roman += repeatString(value, repeat);
-            x %= entry.getKey();
+            roman += appendedString(value, repeat);
+            inputNum %= entry.getKey();
         }
         return roman;
     }
 
-    private String repeatString(String value, int repeat) {
-        String total = "";
+    private String appendedString(String value, int repeat) {
+        String repString = "";
         for(int i = 0; i < repeat; i++) {
-            total += value;
+            repString += value;
         }
-        return total;
+        return repString;
     }
 
 
     public int convertRoman() {
-        String x = roman;
+        String inputString = roman;
         int arabic = 0;
 
         for (Map.Entry<Integer, String> entry : navDescMap.entrySet()) {
             String value = entry.getValue();
             int key = entry.getKey();
 
-            while (x.startsWith(value)) {
+            while (inputString.startsWith(value)) {
                 arabic += key;
-                x = subtractedString(x, value);
+                inputString = subtractedString(inputString, value);
             }
         }
         return arabic;
     }
 
-    private String subtractedString(String x, String value) {
-        return x.substring(value.length());
+    private String subtractedString(String inputString, String value) {
+        return inputString.substring(value.length());
     }
 }
