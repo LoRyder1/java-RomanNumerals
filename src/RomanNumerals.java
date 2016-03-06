@@ -33,28 +33,34 @@ public class RomanNumerals {
 
         String roman = "";
         int x = arabic;
-//        NavigableMap<Integer, String> desMap = navMap.descendingMap();
-//        maybe use descendingKeySet
 
         for(Map.Entry<Integer, String> entry : navDescMap.entrySet()) {
-
             int repeat = x/entry.getKey();
-            for(int i = 0; i < repeat; i++) {
-                roman += entry.getValue();
-            }
+            String value = entry.getValue();
+            roman += repeatString(value, repeat);
             x %= entry.getKey();
         }
         return roman;
     }
+
+    private String repeatString(String value, int repeat) {
+        String total = "";
+        for(int i = 0; i < repeat; i++) {
+            total += value;
+        }
+        return total;
+    }
+
 
     public int convertRoman() {
         String x = roman;
         int arabic = 0;
 
         for (Map.Entry<Integer, String> entry : navDescMap.entrySet()) {
-            while (x.startsWith(entry.getValue())) {
+            String value = entry.getValue();
+            while (x.startsWith(value)) {
                 arabic += entry.getKey();
-                x = x.substring(entry.getValue().length());
+                x = x.substring(value.length());
             }
         }
         return arabic;
