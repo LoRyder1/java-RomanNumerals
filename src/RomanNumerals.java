@@ -5,14 +5,14 @@ public class RomanNumerals {
     private final int arabic;
     private final String roman;
 
-    private Map<Integer, String> sortedMap;
+    private NavigableMap<Integer, String> navMap;
 
     public RomanNumerals(int arabic, String roman) {
         this.arabic = arabic;
         this.roman = roman;
 
 //      The outer pair of braces means that you are declaring and initializing an anonymous inner class that extends TreeMap. The inner pair of braces represents an instance initializer, code that is run when an instance is created.
-        sortedMap = new TreeMap<Integer, String>() {{
+        navMap = new TreeMap<Integer, String>() {{
             put(1000, "M");
             put(900, "CM");
             put(500, "D");
@@ -26,15 +26,16 @@ public class RomanNumerals {
             put(5, "V");
             put(4, "IV");
             put(1, "I");
-        }}.descendingMap();
+        }};
     }
 
     public String convertArabic() {
 
         String roman = "";
         int x = arabic;
+        NavigableMap<Integer, String> desMap = navMap.descendingMap();
 
-        for(Map.Entry<Integer, String> entry : sortedMap.entrySet()) {
+        for(Map.Entry<Integer, String> entry : desMap.entrySet()) {
 
             int repeat = x/entry.getKey();
             for(int i = 0; i < repeat; i++) {
@@ -46,7 +47,9 @@ public class RomanNumerals {
     }
 
     public int convertRoman() {
-        for (Map.Entry<Integer, String> entry : sortedMap.entrySet()) {
+        String x = roman;
+
+        for (Map.Entry<Integer, String> entry : navMap.entrySet()) {
             System.out.print(entry.getKey() + ": ");
         }
 
@@ -54,3 +57,15 @@ public class RomanNumerals {
         return 1;
     }
 }
+
+
+//        def convert_numeral input
+//            @roman = input
+//            @arabic = 0
+//            ROMAN_NUMERALS.values.each do |roman|
+//                while input.start_with?(roman)
+//                    @arabic += ROMAN_NUMERALS.invert[roman]
+//                    input = input.slice(roman.length, input.length)
+//                end
+//            end
+//        end
