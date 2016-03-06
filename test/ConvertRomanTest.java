@@ -2,7 +2,7 @@ import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
 
-public class RomanNumeralsTest2 {
+public class ConvertRomanTest {
 
     private RomanNumerals number;
 
