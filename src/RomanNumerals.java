@@ -58,11 +58,17 @@ public class RomanNumerals {
 
         for (Map.Entry<Integer, String> entry : navDescMap.entrySet()) {
             String value = entry.getValue();
+            int key = entry.getKey();
+
             while (x.startsWith(value)) {
-                arabic += entry.getKey();
-                x = x.substring(value.length());
+                arabic += key;
+                x = subtractedString(x, value);
             }
         }
         return arabic;
+    }
+
+    private String subtractedString(String x, String value) {
+        return x.substring(value.length());
     }
 }
