@@ -37,13 +37,13 @@ public class RomanNumerals {
         for(Map.Entry<Integer, String> entry : navDescMap.entrySet()) {
             int repeat = inputNum/entry.getKey();
             String value = entry.getValue();
-            roman += appendedString(value, repeat);
+            roman += repeatString(value, repeat);
             inputNum %= entry.getKey();
         }
         return roman;
     }
 
-    private String appendedString(String value, int repeat) {
+    private String repeatString(String value, int repeat) {
         String repString = "";
         for(int i = 0; i < repeat; i++) {
             repString += value;
@@ -62,13 +62,13 @@ public class RomanNumerals {
 
             while (inputString.startsWith(value)) {
                 arabic += key;
-                inputString = subtractedString(inputString, value);
+                inputString = subtractString(inputString, value);
             }
         }
         return arabic;
     }
 
-    private String subtractedString(String inputString, String value) {
+    private String subtractString(String inputString, String value) {
         return inputString.substring(value.length());
     }
 }
