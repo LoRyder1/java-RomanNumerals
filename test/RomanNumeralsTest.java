@@ -8,47 +8,47 @@ public class RomanNumeralsTest {
     private RomanNumerals number;
 
     private void setArabic(int num) {
-        number = new RomanNumerals(num);
+        number = new RomanNumerals(num, null);
     }
 
     @Test
-    public void whenRomanNumeralsIsPassedOneAStringIisReturned() {
+    public void convertArabicIsPassedOneAStringIisReturned() {
         setArabic(1);
         assertEquals("I", number.convertArabic());
     }
 
     @Test
-    public void whenRomanNumeralsIsPassedTwoAStringIIisReturned() {
+    public void convertArabicIsPassedTwoAStringIIisReturned() {
         setArabic(2);
         assertEquals("II", number.convertArabic());
     }
 
     @Test
-    public void whenRomanNumeralsIsPassedThreeAStringIIIisReturned() {
+    public void convertArabicIsPassedThreeAStringIIIisReturned() {
         setArabic(3);
         assertEquals("III", number.convertArabic());
     }
 
     @Test
-    public void whenRomanNumeralsIsPassedSixStringConcatenationIsReturned() {
+    public void convertArabicIsPassedSixStringConcatenationIsReturned() {
         setArabic(6);
         assertEquals("VI", number.convertArabic());
     }
 
     @Test
-    public void whenRomanNumeralsIsPassedElevenStringConcatenationIsReturned() {
+    public void convertArabicIsPassedElevenStringConcatenationIsReturned() {
         setArabic(11);
         assertEquals("XI", number.convertArabic());
     }
 
     @Test
-    public void whenRomanNumeralsIsPassedALargeNumberIterateOverAllKeys() {
+    public void convertArabicIsPassedALargeNumberIterateOverAllKeys() {
         setArabic(1066);
         assertEquals("MLXVI", number.convertArabic());
     }
 
     @Test
-    public void whenRomanNumeralsIsPassedAnotherLargeNumberIterateOverAllKeys() {
+    public void convertArabicIsPassedAnotherLargeNumberIterateOverAllKeys() {
         setArabic(1989);
         assertEquals("MCMLXXXIX", number.convertArabic());
     }
