@@ -46,4 +46,10 @@ public class RomanNumeralsTest {
         setArabic(1066);
         assertEquals("MLXVI", number.convertArabic());
     }
+
+    @Test
+    public void whenRomanNumeralsIsPassedAnotherLargeNumberIterateOverAllKeys() {
+        setArabic(1989);
+        assertEquals("MCMLXXXIX", number.convertArabic());
+    }
 }
