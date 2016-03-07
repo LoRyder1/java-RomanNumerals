@@ -29,21 +29,19 @@ public class RomanNumerals {
         }}.descendingMap();
     }
 
-    public final StringBuilder processed = new StringBuilder();
-
     public String convertArabic() {
-
-        String roman = "";
+        StringBuilder roman = new StringBuilder();
         int inputNum = arabic;
-
         for(Map.Entry<Integer, String> entry : navDescMap.entrySet()) {
             int repeat = inputNum/entry.getKey();
             String value = entry.getValue();
-            roman += repeatString(value, repeat);
+            roman.append(repeatString(value, repeat));
             inputNum %= entry.getKey();
         }
-        return roman;
+        return roman.toString();
     }
+
+//    Better to use StringBuilder because String is an immutable class and it can not be modified when created. String concatenation results in creating a new instance of the String class with the modified string.
 
     private String repeatString(String value, int repeat) {
         StringBuilder repString = new StringBuilder();
@@ -52,15 +50,6 @@ public class RomanNumerals {
         }
         return repString.toString();
     }
-//    int n = 3;
-//    String existing_string = "string";
-//    StringBuilder builder = new StringBuilder(existing_string);
-//    for (int i = 0; i < n; i++) {
-//        builder.append(" append ");
-//    }
-
-
-
 
     public int convertRoman() {
         String inputString = roman;
