@@ -29,6 +29,8 @@ public class RomanNumerals {
         }}.descendingMap();
     }
 
+    public final StringBuilder processed = new StringBuilder();
+
     public String convertArabic() {
 
         String roman = "";
@@ -44,12 +46,20 @@ public class RomanNumerals {
     }
 
     private String repeatString(String value, int repeat) {
-        String repString = "";
+        StringBuilder repString = new StringBuilder();
         for(int i = 0; i < repeat; i++) {
-            repString += value;
+            repString.append(value);
         }
-        return repString;
+        return repString.toString();
     }
+//    int n = 3;
+//    String existing_string = "string";
+//    StringBuilder builder = new StringBuilder(existing_string);
+//    for (int i = 0; i < n; i++) {
+//        builder.append(" append ");
+//    }
+
+
 
 
     public int convertRoman() {
